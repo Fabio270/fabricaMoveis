@@ -11,7 +11,9 @@ class Conjunto {
         console.log("Móvel adicionado com sucesso!");
     }
     descricaoConjunto() {
-        return `Conjunto de móveis no estilo ${this.estilo}, contendo ${this.moveis.length} móveis.`;
+        // Cria uma lista de descrições dos móveis
+        const descricoesMoveis = this.moveis.map(movel => movel.descricao()).join("\n ");
+        return `Conjunto de móveis no estilo ${this.estilo}, contendo ${this.moveis.length} móveis: ${descricoesMoveis}`;
     }
 }
 exports.Conjunto = Conjunto;

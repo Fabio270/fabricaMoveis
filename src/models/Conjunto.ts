@@ -12,10 +12,12 @@ export class Conjunto {
 
     adicionarMovel(movel: IMobilia): void {
         this.moveis.push(movel);
-        console.log("Móvel adicionado com sucesso!")
+        console.log("Móvel adicionado com sucesso!");
     }
 
     descricaoConjunto(): string {
-        return `Conjunto de móveis no estilo ${this.estilo}, contendo ${this.moveis.length} móveis.`;
+        // Cria uma lista de descrições dos móveis
+        const descricoesMoveis = this.moveis.map(movel => movel.descricao()).join("\n ");
+        return `Conjunto de móveis no estilo ${this.estilo}, contendo ${this.moveis.length} móveis: ${descricoesMoveis}`;
     }
 }

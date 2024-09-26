@@ -11,12 +11,12 @@ export class Cliente {
 
     adicionarConjunto(conjunto: Conjunto): void {
             this.conjunto = conjunto;
-            console.log(`Conjunto ${conjunto.descricaoConjunto()} adicionado ao cliente ${this.nome}.`);
+            console.log(`${conjunto.descricaoConjunto()} adicionado ao cliente ${this.nome}.`);
     }
 
     listarConjunto(): string {
         if (this.conjunto) {
-            return `Cliente: ${this.nome}\nConjunto: ${this.conjunto.descricaoConjunto()}`;
+            return `Cliente: ${this.nome}\n ${this.conjunto.descricaoConjunto()}`;
         } else {
             return `Cliente: ${this.nome} não possui nenhum conjunto.`;
         }

@@ -70,7 +70,6 @@ while (true) {
     const opcao = parseInt(readlineSync.question("Escolha uma opcao: ") || "0");
     switch (opcao) {
         case 1: // Criar novo cliente
-            listarClientes(clientes);
             const nomeCliente = readlineSync.question("Digite o nome do cliente: ") || "";
             clientes.push(new Cliente_1.Cliente(nomeCliente));
             console.log(`Cliente ${nomeCliente} criado com sucesso!`);
