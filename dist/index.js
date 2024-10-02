@@ -102,28 +102,32 @@ while (true) {
                     console.log("O cliente não possui nenhum conjunto.");
                     break;
                 }
+                let continuarCompra = "";
                 const estiloMovel = obterEstilo();
                 if (estiloMovel != (conjuntoExistente === null || conjuntoExistente === void 0 ? void 0 : conjuntoExistente.estilo)) {
-                    console.log("Não é permitido formar conjuntos de estilos diferentes de móveis.");
-                    break;
+                    console.log("O estilo do conjunto é diferente do móvel que você está tentando comprar, tem certeza que deseja continuar?");
+                    continuarCompra = readlineSync.question("Continuar? 1-> sim, 2-> negativo\n") || "invalido";
+                    console.log(continuarCompra);
                 }
-                const tipoMovel = readlineSync.question("Digite o numero do tipo do movel desejado (1.Cadeira, 2.Mesa de Centro, 3.Sofa): ") || "";
-                let novoMovel;
-                switch (tipoMovel.toLowerCase()) {
-                    case "1":
-                        novoMovel = new Cadeira_1.Cadeira(estiloMovel);
-                        break;
-                    case "2":
-                        novoMovel = new MesaDeCentro_1.MesaDeCentro(estiloMovel);
-                        break;
-                    case "3":
-                        novoMovel = new Sofa_1.Sofa(estiloMovel);
-                        break;
-                    default:
-                        console.log("Tipo de movel inválido.");
-                        continue;
+                if (continuarCompra == "1" || continuarCompra == "sim" || continuarCompra == "") {
+                    const tipoMovel = readlineSync.question("Digite o numero do tipo do movel desejado (1.Cadeira, 2.Mesa de Centro, 3.Sofa): ") || "";
+                    let novoMovel;
+                    switch (tipoMovel.toLowerCase()) {
+                        case "1":
+                            novoMovel = new Cadeira_1.Cadeira(estiloMovel);
+                            break;
+                        case "2":
+                            novoMovel = new MesaDeCentro_1.MesaDeCentro(estiloMovel);
+                            break;
+                        case "3":
+                            novoMovel = new Sofa_1.Sofa(estiloMovel);
+                            break;
+                        default:
+                            console.log("Tipo de movel inválido.");
+                            continue;
+                    }
+                    conjuntoExistente.adicionarMovel(novoMovel);
                 }
-                conjuntoExistente.adicionarMovel(novoMovel);
             }
             else {
                 console.log("Cliente não encontrado.");
